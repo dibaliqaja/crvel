@@ -9,6 +9,11 @@
 </head>
 <body>
     <div class="container">
+        @if (session('Success'))
+            <div class="alert alert-success" role="alert">
+                {{ session('Success') }}
+            </div>
+        @endif
         <div class="row">
             <div class="col-6">
                 <h3>Data Mahasiswa</h3>
@@ -29,31 +34,31 @@
                                     <span aria-hidden="true">&times;</span>
                                 </button>
                             </div>
+                            <div class="modal-body">
                             <form action="/mahasiswa/create" method="POST">
                                 {{ csrf_field() }}
-                            <div class="modal-body">
                                 <div class="form-group">
                                     <label for="namaDepan">Nama Depan</label>
-                                    <input type="text" class="form-control" id="namaDepan" aria-describedby="namaDepan" placeholder="Nama Depan" required>
+                                    <input type="text" name="nama_depan" class="form-control" id="namaDepan" aria-describedby="namaDepan" placeholder="Nama Depan" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="namaBelakang">Nama Belakang</label>
-                                    <input type="text" class="form-control" id="namaBelakang" aria-describedby="namaBelakang" placeholder="Nama Belakang" required>
+                                    <input type="text" name="nama_belakang" class="form-control" id="namaDelakang" aria-describedby="namaBelakang" placeholder="Nama Belakang" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="jenisKelamin">Jenis Kelamin</label>
-                                    <select class="form-control" id="jenisKelamin" required>
+                                    <select class="form-control" name="jenis_kelamin" id="jenisKelamin" required>
                                         <option value="Laki-Laki">Laki-Laki</option>
                                         <option value="Perempuan">Perempuan</option>
                                     </select>
                                 </div>
                                 <div class="form-group">
                                     <label for="agama">Agama</label>
-                                    <input type="text" class="form-control" id="agama" aria-describedby="agama" placeholder="Agama" required>
+                                    <input type="text" name="agama" class="form-control" id="agama" aria-describedby="agama" placeholder="Agama" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="alamat">Alamat</label>
-                                    <textarea class="form-control" id="alamat" rows="3" placeholder="Tuban, Jawa Timur, Indonesia" required></textarea>
+                                    <textarea class="form-control" name="alamat" id="alamat" rows="3" placeholder="Tuban, Jawa Timur, Indonesia" required></textarea>
                                 </div>
                             </div>
                             <div class="modal-footer">

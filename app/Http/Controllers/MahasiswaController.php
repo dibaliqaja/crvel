@@ -12,8 +12,9 @@ class MahasiswaController extends Controller
         return view('mahasiswa.index', ['data_mahasiswa' => $data_mahasiswa]);
     }
 
-    public function create()
+    public function create(Request $request)
     {
-        
+        \App\Mahasiswa::create($request->all());
+        return redirect('/mahasiswa')->with('Success', 'Data Berhasil Dimasukkan!');
     }
 }
